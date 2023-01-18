@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;1,100;1,400&display=swap"
+        rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Books Finder</title>
+  <script defer="defer" src="main.js"></script>
+  <script defer="defer" src="info.js"></script>
+  <link href="main.css" rel="stylesheet">
+  <link href="info.css" rel="stylesheet">
+</head>
+<body>
+<nav id="navbar">
+  <div id="back-btn">⇦ BACK</div>
+  <div class="nav-title"></div>
+  <a id="info" href="./info.html">INFO</a></nav>
+<section id="search-container">
+  <div><a href="./">BOOK FINDER</a> <label class="label" for="input-search"></label><br><input id="input-search"
+                                                                                               placeholder="Cerca la categoria"
+                                                                                               value="fantasy">
+    <button id="button-search">Search</button>
+  </div>
+</section>
+<section id="books-container" style="max-width: 1200px; margin: 0 auto;"><h1 id="books-page-title"></h1>
+  <div id="result-container"></div>
+  <div id="description-window"></div>
+</section>
+</body>
+</html>
