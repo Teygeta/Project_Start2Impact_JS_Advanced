@@ -2,48 +2,49 @@ import '../css/styles.css';
 import { get } from 'lodash';
 
 const elements = {
+  backBtn: '.back-btn',
+  searchContainer: '.search-container',
   input: '#input-search',
   searchButton: '#button-search',
-  resultContainer: '#result-container',
-  descriptionWindow: '#description-window',
-  booksPageTitle: '#books-page-title',
-  searchContainer: '#search-container',
-  navBar: '#navbar',
-  navTitle: '#nav-title',
-  backBtn: '#back-btn',
+  errorMessage: '.error-message',
+  loader: '.loader',
+  booksPageTitle: '.books-page-title',
+  resultContainer: '.result-container',
+  descriptionWindow: '.description-window',
 };
 for (let name in elements) {
   elements[name] = document.querySelector(elements[name]);
 }
-const { input, searchButton, resultContainer, backBtn, descriptionWindow, booksPageTitle, searchContainer } = elements;
-const [loader] = document.body.getElementsByClassName('loader');
+const {
+  backBtn,
+  searchContainer,
+  input,
+  searchButton,
+  errorMessage,
+  loader,
+  booksPageTitle,
+  resultContainer,
+  descriptionWindow,
+} = elements;
 
-
-// TODO correggere verifica di ricerca
 // TODO vedere le Environment Variables
-// TODO rendere responsive la descrizione dei libri
-// TODO rendere responsive la descrizione dei libri
 
-
-let errorDisplayed = false
 // fetch books and print them passing category as parameter
-const handleSearch = async (category, sortBy) => {
+const handleSearch = async (category) => {
+  loader.style.display = 'block'
+
   const data = await fetch(`https://openlibrary.org/subjects/${category}.json`);
   const dataJson = await data.json()
-  const books = get(dataJson, 'works')
+  const books = get(dataJson, 'works', 'invoca') // get books
 
-  if (category === '' ) {
-    if (errorDisplayed) return
-    errorDisplayed = true
-    const item = document.createElement('div')
-    item.className = 'error-message'
-    item.textContent = 'Category not found'
+  if (category === '' || dataJson.work_count === 0) {
 
-    searchContainer.appendChild(item)
+    loader.style.display = 'none'
+
+    errorMessage.innerText = 'Category not found';
     setTimeout(() => {
-      item.style.display = 'none';
-      errorDisplayed = false
-    }, 3000);
+      errorMessage.innerText = 'ㅤ'
+    }, 2000);
     return
   }
 
@@ -52,17 +53,17 @@ const handleSearch = async (category, sortBy) => {
   displayBooks(books, category)
 }
 
-// map all title and print them
+// loop all title and print them
 const displayBooks = ((books, category) => {
-  if (books.length === 0) return
-
   resultContainer.innerHTML = '';
   booksPageTitle.innerText = `BOOKS FOR "${category.toUpperCase()}" CATEGORY:`
 
   for (const book of books) {
+    // get key
     const key = get(book, 'key', 'Key not found')
     const item = document.createElement('div');
 
+    // get authors
     let authors = get(book, 'authors', 'Author not found')
     if (Array.isArray(authors)) {
       if (authors.length <= 4) {
@@ -70,12 +71,11 @@ const displayBooks = ((books, category) => {
           .map((author) => {
             return author.name;
           })
-          .join(", ");
+          .join(', ');
       } else {
         authors = `${authors[0].name}, ${authors[1].name}, ${authors[2].name}, ${authors[3].name} and others`;
       }
-    };
-
+    }
 
     item.classList.add('book-card')
 
@@ -99,16 +99,13 @@ const displayBookDetails = async (key) => {
   const dataJson = await data.json()
   const description = dataJson.description;
 
-
   descriptionWindow.innerHTML =
     `
     <button class="close-btn">X</button>
     <h1>Description:</h1>
     <p>${(description === undefined || typeof (description) === 'object') ? 'No description for this book' : description}</p>
   `
-
   descriptionWindow.style.display = 'block'
-
   closeBtn()
 }
 
@@ -123,21 +120,27 @@ const closeBtn = () => {
 // event listener for search books
 searchButton.addEventListener('click', () => {
     handleSearch(input.value).then();
-    loader.style.display = 'block'
   }
 )
 
-// event for search books with enter key
+// event to invoke search function and to check whether the user types space
 input.onkeydown = e => {
   if (e.key === 'Enter') {
-    handleSearch(input.value).then(),
-      loader.style.display = 'block'
+    handleSearch(input.value.trim()).then()
+  }
+  if (e.which === 32) {
+    errorMessage.innerText = 'categories with multiple names not available'
+
+    setTimeout(() => {
+      errorMessage.innerText = 'ㅤ'
+    }, 2000);
+    return false;
   }
 }
 
 // back to search page
 backBtn.addEventListener('click', () => {
-  searchContainer.style.display = 'block'
+  searchContainer.style.display = 'flex'
   backBtn.style.display = 'none'
   resultContainer.innerHTML = ''
   booksPageTitle.innerText = ''

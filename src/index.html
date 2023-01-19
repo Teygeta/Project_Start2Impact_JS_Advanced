@@ -16,25 +16,26 @@
 
 <body>
 <nav id="navbar">
-  <div id="back-btn">⇦ BACK</div>
-  <div class="nav-title"></div>
-  <a id="info" href="./info.html">INFO</a>
+  <div class="back-btn">⇦ BACK</div>
+  <div></div>
+  <a class="info" href="./info.html">INFO</a>
 </nav>
-<section id="search-container">
+<section class="search-container">
   <a href="./">BOOK FINDER</a>
-  <div style="margin: 0 auto;">
+  <div class="inp-btn-cont" style="display: flex; flex-wrap: nowrap;">
     <label class="label" for="input-search"></label><br>
-    <input autocomplete="off" id="input-search" type="text" placeholder="Cerca la categoria" value="fantasy">
+    <input autocomplete="off" id="input-search" type="text" placeholder="Cerca la categoria">
     <!--TODO rimuovere value fantasy-->
     <button id="button-search">Search</button>
   </div>
   <br><br>
+  <div class="error-message">ㅤ</div>
   <div class="loader"></div>
 </section>
-<section id="books-container" style="max-width: 1200px; margin: 0 auto;">
-  <h1 id="books-page-title"></h1>
-  <div id="result-container"></div>
-  <div id="description-window"></div>
+<section class="books-container" style="max-width: 1200px; margin: 0 auto;">
+  <h1 class="books-page-title"></h1>
+  <div class="result-container"></div>
+  <div class="description-window"></div>
 </section>
 </body>
 
