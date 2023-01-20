@@ -1,9 +1,6 @@
 import '../css/styles.css';
 import { get } from 'lodash';
 
-console.log(process.env.PROVA_ENV_VAR)
-
-
 const elements = {
   backBtn: '.back-btn',
   searchContainer: '.search-container',
@@ -81,7 +78,6 @@ const displayBooks = ((books, category) => {
         authors = `${authors[0].name}, ${authors[1].name}, ${authors[2].name}, ${authors[3].name} and others`;
       }
     }
-
 
     const item = document.createElement('div');
     item.classList.add('book-card')
