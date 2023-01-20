@@ -100,10 +100,9 @@ const displayBooks = ((books, category) => {
 const displayBookDetails = async (key) => {
   const data = await fetch(`${apiUrl}${key}.json`)
   const dataJson = await data.json()
-  console.log(dataJson)
   const description = get(dataJson, 'description', 'No description for this book')
 
-  // description check
+  // description's check
   const descriptionText = !description || !description.value
     ? 'No description for this book'
     : description.value;
@@ -112,8 +111,7 @@ const displayBookDetails = async (key) => {
     `
     <button class="close-btn">X</button>
     <h1>Description:</h1>
-    <p>${descriptionText}
-    </p>
+    <p>${descriptionText}</p>
   `
   descriptionWindow.style.display = 'block'
   closeBtn()

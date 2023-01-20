@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { EnvironmentPlugin } = require('webpack');
+const Dotenv = require('dotenv-webpack')
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -32,7 +33,7 @@ const config = {
       API: 'https://openlibrary.org',
       API_COVERS: 'https://covers.openlibrary.org/b/id/',
     }),
-
+    new Dotenv( {systemvars: true}),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
