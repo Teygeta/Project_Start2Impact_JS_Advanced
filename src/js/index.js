@@ -1,6 +1,9 @@
 import '../css/styles.css';
 import { get } from 'lodash';
 
+console.log(process.env.PROVA_ENV_VAR)
+
+
 const elements = {
   backBtn: '.back-btn',
   searchContainer: '.search-container',
