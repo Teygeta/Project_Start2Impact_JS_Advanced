@@ -23,7 +23,8 @@ const {
   searchButton,
   errorMessage,
   loader,
-
+  booksPageTitle,
+  resultContainer,
   descriptionWindow,
 } = elements;
 
@@ -63,8 +64,6 @@ const displayBooks = ((books, category) => {
   booksPageTitle.innerText = `BOOKS FOR "${category.toUpperCase()}" CATEGORY:`
 
   for (const book of books) {
-    // get key
-    const key = get(book, 'key', 'Key not found')
 
     // get authors
     let authors = get(book, 'authors', 'Author not found')
@@ -89,7 +88,8 @@ const displayBooks = ((books, category) => {
         <p>${book.title}</p> <br>
         <p style="font-size: 1.4rem; margin-top: -1.5rem; font-style: italic;">Author: ${authors}</p>
     `
-    item.addEventListener('click', function () {
+    item.addEventListener('click', () => {
+      const key = get(book, 'key', 'Key not found')
       displayBookDetails(key).then();
     });
     resultContainer.appendChild(item);
@@ -101,13 +101,20 @@ const displayBooks = ((books, category) => {
 const displayBookDetails = async (key) => {
   const data = await fetch(`${apiUrl}${key}.json`)
   const dataJson = await data.json()
-  const description = dataJson.description;
+  console.log(dataJson)
+  const description = get(dataJson, 'description', 'No description for this book')
+
+  // description check
+  const descriptionText = !description || !description.value
+    ? 'No description for this book'
+    : description.value;
 
   descriptionWindow.innerHTML =
     `
     <button class="close-btn">X</button>
     <h1>Description:</h1>
-    <p>${(description === undefined || typeof (description) === 'object') ? 'No description for this book' : description}</p>
+    <p>${descriptionText}
+    </p>
   `
   descriptionWindow.style.display = 'block'
   closeBtn()
