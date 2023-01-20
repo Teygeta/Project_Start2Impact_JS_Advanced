@@ -15,6 +15,7 @@ const elements = {
 for (let name in elements) {
   elements[name] = document.querySelector(elements[name]);
 }
+
 const {
   backBtn,
   searchContainer,
@@ -22,26 +23,29 @@ const {
   searchButton,
   errorMessage,
   loader,
-  booksPageTitle,
-  resultContainer,
+
   descriptionWindow,
 } = elements;
 
-// TODO vedere le Environment Variables
+/* these two environment variables basically have no practical meaning in this project,
+but were implemented to practise with them.*/
+const apiUrl = process.env.API
+const apiUrlCovers = process.env.API_COVERS
 
 // fetch books and print them passing category as parameter
 const handleSearch = async (category) => {
   loader.style.display = 'block'
 
-  const data = await fetch(`https://openlibrary.org/subjects/${category}.json`);
+  const data = await fetch(`${apiUrl}/subjects/${category}.json`);
   const dataJson = await data.json()
   const books = get(dataJson, 'works', 'invoca') // get books
 
-  if (category === '' || dataJson.work_count === 0) {
+  // api call check
+  if (data.status === 404 || dataJson.work_count === 0) {
 
     loader.style.display = 'none'
-
     errorMessage.innerText = 'Category not found';
+
     setTimeout(() => {
       errorMessage.innerText = 'ㅤ'
     }, 2000);
@@ -61,7 +65,6 @@ const displayBooks = ((books, category) => {
   for (const book of books) {
     // get key
     const key = get(book, 'key', 'Key not found')
-    const item = document.createElement('div');
 
     // get authors
     let authors = get(book, 'authors', 'Author not found')
@@ -77,11 +80,12 @@ const displayBooks = ((books, category) => {
       }
     }
 
-    item.classList.add('book-card')
 
+    const item = document.createElement('div');
+    item.classList.add('book-card')
     item.innerHTML =
       `
-        <img src="https://covers.openlibrary.org/b/id/${book.cover_id}-L.jpg" alt="cover" width="180px" height="270px">
+        <img src="${apiUrlCovers}${book.cover_id}-L.jpg" alt="cover" width="180px" height="270px">
         <p>${book.title}</p> <br>
         <p style="font-size: 1.4rem; margin-top: -1.5rem; font-style: italic;">Author: ${authors}</p>
     `
@@ -95,7 +99,7 @@ const displayBooks = ((books, category) => {
 
 // fetch description and print it
 const displayBookDetails = async (key) => {
-  const data = await fetch(`https://openlibrary.org${key}.json`)
+  const data = await fetch(`${apiUrl}${key}.json`)
   const dataJson = await data.json()
   const description = dataJson.description;
 
@@ -119,14 +123,14 @@ const closeBtn = () => {
 
 // event listener for search books
 searchButton.addEventListener('click', () => {
-    handleSearch(input.value).then();
+    handleSearch(input.value.trim().toLowerCase()).then();
   }
 )
 
 // event to invoke search function and to check whether the user types space
 input.onkeydown = e => {
   if (e.key === 'Enter') {
-    handleSearch(input.value.trim()).then()
+    handleSearch(input.value.trim().toLowerCase()).then()
   }
   if (e.which === 32) {
     errorMessage.innerText = 'categories with multiple names not available'
