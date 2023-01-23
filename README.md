@@ -1,4 +1,4 @@
- <h1>Start2Impact, JavaScript Advanced Project</h1>
+ <h1>Start2Impact, JavaScript Advanced</h1>
 
 <img src="./src/img/App_Screen.png" width="400" style="border-radius: 10px" alt="App_screen"/>
 

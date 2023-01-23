@@ -33,8 +33,6 @@ but were implemented to practise with them.*/
 const apiUrl = process.env.API
 const apiUrlCovers = process.env.API_COVERS
 
-console.log(apiUrl)
-
 // fetch books and print them passing category as parameter
 const handleSearch = async (category) => {
   loader.style.display = 'block'
