@@ -19,7 +19,7 @@
 * Netlify for deploy
 
 ## About
-Questo progetto è stato sviluppato con start2impact seguendo le direttive della guida teorica presenta del corso "Full Stack Development"
+Questo progetto è stato sviluppato con start2impact seguendo le direttive della guida teorica presenta del corso "[Full Stack Development](https://www.start2impact.it/master/full-stack-development/)"
 
 Test the app on [Netlify](https://glistening-phoenix-cf085f.netlify.app/)
 
