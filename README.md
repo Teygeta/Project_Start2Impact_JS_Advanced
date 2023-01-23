@@ -1,15 +1,35 @@
-# 🚀 Welcome to your new awesome project!
+Start2Impact, JavaScript Advanced Project
+About The Project
+App_screen
 
-This project has been created using **webpack-cli**, you can now run
+Goals:
+Manage API calls to external services and retrieve the necessary data.
+Use Webpack to deploy the file.
+Work with arrays through external libraries such as Lodash.
+Working with environment variables and managing related files to ignore with git.
+Working with json.
+Built With:
+HTML5
 
-```
-npm run build
-```
+CSS3
 
-or
+JavaScript
 
-```
-yarn build
-```
+Webpach
 
-to bundle your application
+Lodash
+
+Npm
+
+Netlify for deploy
+
+About
+Questo progetto è stato sviluppato con start2impact seguendo le direttive della guida teorica presenta del corso "Full Stack Development"
+
+Test the app on Netlify
+
+Start2Impact Profile: https://talent.start2impact.it/profile/vittorio-gioda
+
+LikedIn: https://www.linkedin.com/in/vittorio-gioda/
+
+Project Link: https://github.com/Teygeta/Project_Start2Impact_JS
