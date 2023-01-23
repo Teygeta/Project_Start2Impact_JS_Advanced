@@ -1,8 +1,8 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
+const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { EnvironmentPlugin } = require('webpack')
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -19,6 +19,7 @@ const config = {
     host: 'localhost',
   },
   plugins: [
+    new Dotenv({ systemvars: true }),
     new HtmlWebpackPlugin({
       template: '/src/index.html'
     }),
@@ -27,10 +28,6 @@ const config = {
       template: 'src/info/index.html'
     }),
     new MiniCssExtractPlugin(),
-    new EnvironmentPlugin({
-      API: 'https://openlibrary.org',
-      API_COVERS: 'https://covers.openlibrary.org/b/id/',
-    }),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],

@@ -150,9 +150,9 @@ nav a:hover {
     transform: scale(1);
 }
 
-img {
+.book-card > img {
     border-radius: .2rem;
-    box-shadow: 0 0 12px -2px #000000;
+    box-shadow: 0 0 17px -5px #000000;
 }
 
 .description-window {

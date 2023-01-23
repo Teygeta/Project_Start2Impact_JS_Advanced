@@ -33,6 +33,8 @@ but were implemented to practise with them.*/
 const apiUrl = process.env.API
 const apiUrlCovers = process.env.API_COVERS
 
+console.log(apiUrl)
+
 // fetch books and print them passing category as parameter
 const handleSearch = async (category) => {
   loader.style.display = 'block'
@@ -83,6 +85,7 @@ const displayBooks = ((books, category) => {
     item.classList.add('book-card')
     item.innerHTML =
       `
+        <!--get image-->
         <img src="${apiUrlCovers}${book.cover_id}-L.jpg" alt="cover" width="180px" height="270px">
         <p>${book.title}</p> <br>
         <p style="font-size: 1.4rem; margin-top: -1.5rem; font-style: italic;">Author: ${authors}</p>
