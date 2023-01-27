@@ -2,6 +2,9 @@
 
 <img src="./src/img/App_Screen.png" width="400" style="border-radius: 10px" alt="App_screen"/>
 
+## The project 
+This project was realised during the course of study I am doing through the Start2Impact platform, in order to certify the skills learnt. It represents a web application developed with JavaScript that aims to help people search for specific books based on the category entered. 
+
 ## Goals:
 * Manage API calls to external services and retrieve the necessary data.
 * Use Webpack to deploy the file.
@@ -19,7 +22,7 @@
 * Netlify for deploy
 
 ## About
-Questo progetto è stato sviluppato con start2impact seguendo le direttive della guida teorica presenta del corso "[Full Stack Development](https://www.start2impact.it/master/full-stack-development/)"
+Questo progetto è stato sviluppato con start2impact seguendo le direttive della guida teorica presente del corso "[Full Stack Development](https://www.start2impact.it/master/full-stack-development/)"
 
 Test the app on [Netlify](https://soft-liger-572cec.netlify.app)
 
