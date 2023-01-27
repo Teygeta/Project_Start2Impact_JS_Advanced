@@ -16,18 +16,19 @@ This project was realised during the course of study I am doing through the [Sta
 * HTML5
 * CSS3
 * JavaScript
-* Webpach
-* Lodash
-* Npm
-* Netlify for deploy
+* [Webpack](https://webpack.js.org/)
+* [Lodash](https://lodash.com/)
+* [Npm](https://www.npmjs.com/)
+* [Netlify](https://www.netlify.com/) for deploy
+
 
 ## About
-Questo progetto è stato sviluppato con start2impact seguendo le direttive della guida teorica presente del corso "[Full Stack Development](https://www.start2impact.it/master/full-stack-development/)"
+This project was developed with start2impact following the guidelines of the present theoretical course guide: "[Full Stack Development](https://www.start2impact.it/master/full-stack-development/)"
 
-Test the app on [Netlify](https://soft-liger-572cec.netlify.app)
+Test the app with [Netlify](https://soft-liger-572cec.netlify.app)
 
 Start2Impact Profile: [https://talent.start2impact.it/profile/vittorio-gioda](https://talent.start2impact.it/profile/vittorio-gioda)
 
 LikedIn: [https://www.linkedin.com/in/vittorio-gioda/](https://www.linkedin.com/in/vittorio-gioda/)
 
-Project Link: [https://github.com/Teygeta/Project_Start2Impact_JS_Advanced](https://github.com/Teygeta/Project_Start2Impact_JS_Advanced)
+GitHub Project Link: [https://github.com/Teygeta/Project_Start2Impact_JS_Advanced](https://github.com/Teygeta/Project_Start2Impact_JS_Advanced)
