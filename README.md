@@ -21,7 +21,7 @@
 ## About
 Questo progetto è stato sviluppato con start2impact seguendo le direttive della guida teorica presenta del corso "[Full Stack Development](https://www.start2impact.it/master/full-stack-development/)"
 
-Test the app on [Netlify](https://glistening-phoenix-cf085f.netlify.app/)
+Test the app on [Netlify](https://soft-liger-572cec.netlify.app)
 
 Start2Impact Profile: [https://talent.start2impact.it/profile/vittorio-gioda](https://talent.start2impact.it/profile/vittorio-gioda)
 
