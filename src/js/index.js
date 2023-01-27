@@ -104,9 +104,9 @@ const displayBookDetails = async (key) => {
   const description = get(dataJson, 'description', 'No description for this book')
 
   // description's check
-  const descriptionText = !description || !description.value
-    ? 'No description for this book'
-    : description.value;
+  let descriptionText;
+  if(typeof description === 'object') descriptionText = description.value
+  else if (description)descriptionText = description
 
   descriptionWindow.innerHTML =
     `
