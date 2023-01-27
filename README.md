@@ -3,7 +3,7 @@
 <img src="./src/img/App_Screen.png" width="400" style="border-radius: 10px" alt="App_screen"/>
 
 ## The project 
-This project was realised during the course of study I am doing through the Start2Impact platform, in order to certify the skills learnt. It represents a web application developed with JavaScript that aims to help people search for specific books based on the category entered. 
+This project was realised during the course of study I am doing through the [Start2Impact](https://www.start2impact.it/) platform, in order to certify the skills learnt. It represents a web application developed with JavaScript that aims to help people search for specific books based on the category entered. 
 
 ## Goals:
 * Manage API calls to external services and retrieve the necessary data.
